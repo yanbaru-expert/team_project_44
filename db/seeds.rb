@@ -6,3 +6,22 @@ User.find_or_create_by!(email: EMAIL) do |user|
   user.password = PASSWORD
   puts 'ユーザーの初期データインポートに成功しました。'
 end
+
+# csvファイルを読み込む
+require "csv"
+
+CSV.foreach('db/csv_data/text_data.csv', headers: true) do |row|
+  Text.create(
+    genre: row['genre'],
+    title: row['title'],
+    content: row['content']
+  )
+end
+
+CSV.foreach('db/csv_data/movie_data.csv', headers: true) do |row|
+  Movie.create(
+    genre: row['genre'],
+    title: row['title'],
+    url: row['url']
+  )
+end
