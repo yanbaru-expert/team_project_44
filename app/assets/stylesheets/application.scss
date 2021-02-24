@@ -28,3 +28,11 @@
 body {
   padding-top: 56px;
 }
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link-disabled{
+  color: rgb(85, 73, 73);
+}
