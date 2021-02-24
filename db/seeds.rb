@@ -19,3 +19,10 @@ CSV.foreach('db/csv_data/text_data.csv', headers: true) do |row|
 end
 
 Movie.delete_all
+CSV.foreach('db/csv_data/movie_data.csv', headers: true) do |row|
+  Movie.create(
+    genre: row['genre'],
+    title: row['title'],
+    url: row['url']
+  )
+end
