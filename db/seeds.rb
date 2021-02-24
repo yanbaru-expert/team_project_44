@@ -17,3 +17,5 @@ CSV.foreach('db/csv_data/text_data.csv', headers: true) do |row|
     content: row['content']
   )
 end
+
+Movie.delete_all
