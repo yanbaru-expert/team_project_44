@@ -13,14 +13,7 @@
 
   <body>    
     <header>
-      <% if user_signed_in? %>
-        <!-- ログイン時 -->
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
-      <% else %>
-        <!-- 非ログイン時 -->
-        <%= link_to "ログイン", new_user_session_path %>
-        <%= link_to "新規登録", new_user_registration_path %>
-      <% end %>
+      <%= render "layouts/header" %>
     </header>
     <main>
       <#% max_width メソッドは application_helper.rb に記載 %>
