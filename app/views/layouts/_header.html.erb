@@ -1,15 +1,18 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
-  <span class="navbar-brand">やんばるエキスパート</span>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <% if user_signed_in? %>
-        <%= render "layouts/menu_logged_in" %>
-      <% else %>
-        <%= render "layouts/menu_default" %>
-      <% end %>
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: #6699FF;">
+
+    <a class="navbar-brand" href="/">やんばるエキスパート</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <% if user_signed_in? %>
+          <%= render "layouts/menu_logged_in" %>
+        <% else %>
+          <%= render "layouts/menu_default" %>
+        <% end %>
+      </div>
     </div>
-  </div>
+
 </nav>
