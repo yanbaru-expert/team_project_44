@@ -13,6 +13,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 # ログイン機能
 gem 'devise'
+# 管理者画面
+gem 'activeadmin'
 
 # 多言語対応(Rails 6の場合)
 gem 'rails-i18n', '~> 6.0'
