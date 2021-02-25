@@ -3,6 +3,9 @@ require 'csv'
 EMAIL = 'test@example.com'
 PASSWORD = 'password'
 
+ADMIN_EMAIL = "admin@example.com"
+ADMIN_PASSWORD = "password"
+
 # テストユーザーが存在しないときだけ作成
 User.find_or_create_by!(email: EMAIL) do |user|
   user.password = PASSWORD
@@ -26,4 +29,11 @@ CSV.foreach('db/csv_data/movie_data.csv', headers: true) do |row|
     url: row['url']
   )
 end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+AdminUser.find_or_create_by!(email: ADMIN_EMAIL) do |admin_user|
+  admin_user.password = ADMIN_PASSWORD
+  admin_user.password_confirmation = ADMIN_PASSWORD
+  puts "管理者ユーザーの初期データのインポートに成功しました。"
+end
+  
+
