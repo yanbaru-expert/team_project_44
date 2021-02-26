@@ -17,8 +17,8 @@
       <%= render "layouts/flash" %>
     </header>
     <main>
-      <%# devise_max_widthおよびmax_width メソッドは application_helper.rb に記載 %>
-      <div class="base-container <%= devise_controller? ? devise_max_width : max_width %>"> 
+      <%# max_width メソッドは application_helper.rb に記載 %>
+      <div class="base-container <%= max_width %>"> 
         <%= yield %>
       </div>
     </main>
