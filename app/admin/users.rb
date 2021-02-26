@@ -1,3 +1,3 @@
 ActiveAdmin.register User do
-  permit_params :name, :age, :address
+  permit_params :email, :password, :password_confirmation
 end
