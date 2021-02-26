@@ -33,4 +33,22 @@ h1 {
 
 .mw-md {
   max-width: 576px;
+body {
+  padding-top: 56px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link-disabled{
+  color: rgb(85, 73, 73);
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.alert-alert {
+  @extend .alert-danger;
 }

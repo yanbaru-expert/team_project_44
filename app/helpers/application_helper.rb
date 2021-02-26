@@ -6,4 +6,9 @@ module ApplicationHelper
   def devise_max_width
     'mw-md'
   end
+  
+  def not_logged_in
+    "disabled" unless user_signed_in?
+  end
 end
+
