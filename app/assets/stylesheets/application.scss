@@ -11,6 +11,12 @@
   padding: 1rem;
 }
 
+h1 {
+    padding: 20px 0px 10px 0px;
+    font-size: 2rem;
+    text-align: center;
+}
+
 /* max-width */
 
 .mw-md {
@@ -23,6 +29,10 @@
 
 .mw-xl {
   max-width: 1200px;
+}
+
+.mw-md {
+  max-width: 576px;
 }
 
 body {

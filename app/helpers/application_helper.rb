@@ -1,6 +1,6 @@
 module ApplicationHelper
   def max_width
-    'mw-xl'
+    devise_controller? ? 'mw-md' : 'mw-xl'
   end
 
   def not_logged_in
