@@ -3,6 +3,6 @@ class TextsController < ApplicationController
 
   def index
     # ()にマッチするレコードを全て取得する
-    @texts = Text.where("genre IN ('Basic', 'Git', 'HTML&CSS', 'Ruby', 'Ruby on Rails')")
+    @texts = Text.where(genre: ["Basic", "Git", "HTML&CSS", "Ruby", "Ruby on Rails"])
   end
 end
