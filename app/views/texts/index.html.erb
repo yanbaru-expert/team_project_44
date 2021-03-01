@@ -5,15 +5,15 @@
       <div class="card-deck">
         <% @texts.each do |text| %>
           <div class="col-12 col-md-6 col-lg-4 text-card-container">
-            <div class="card content-card border-dark">
+            <div class="card content-card border-dark mb-3">
               <div class="card-header p-0">
-              <img class="card-img-top" src="https://d5izmuz0mcjzz.cloudfront.net/texts/no_image.jpg">
+              <img class="card-img-top" src="https://d5izmuz0mcjzz.cloudfront.net/texts/no_image.jpg" alt="カード画像">
               </div>
               <div class="card-body">
                 <%# ボタンは別タスク %>
                 <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
-                <p class="card-text text-left"><%= text.title %></p>
-                <p class="text-left">【<%= text.genre %>】</p>
+                <p class="card-title text-left"><%= text.title %></p>
+                <p class="card-text text-left">【<%= text.genre %>】</p>
               </div>
             </div>
           </div>
