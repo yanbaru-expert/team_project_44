@@ -54,3 +54,12 @@ body {
 .alert-alert {
   @extend .alert-danger;
 }
+// テキストページ一覧
+.card {
+  margin: 0 auto 60px;
+  max-width: 376px;
+  height: 370px;
+}
+.card-body p {
+  text-align: left;
+}
