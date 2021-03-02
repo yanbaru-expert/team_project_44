@@ -9,8 +9,6 @@
 .base-container {
   margin: 0 auto;
   padding: 1rem;
-  padding-top: 7%;
-  padding-bottom: 30px;
 }
 
 /* max-width */
@@ -46,14 +44,12 @@ body {
 .alert-alert {
   @extend .alert-danger;
 }
-// BootstrapCardsの幅を調整
-div.text-card-container {
-  padding-left: 9px;
-  padding-right: 9px;
-  margin-bottom: 50px;
-}
-div.content-card {
-  margin: 0 auto;
-  height: 370px;
+// テキストページ一覧
+.card {
+  margin: 0 auto 60px;
   max-width: 376px;
+  height: 370px;
+}
+.card-body p {
+  text-align: left;
 }
