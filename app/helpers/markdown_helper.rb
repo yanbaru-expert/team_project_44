@@ -1,6 +1,4 @@
 module MarkdownHelper
-  require 'redcarpet'
-  require 'coderay'
   class HTMLwithCoderay < Redcarpet::Render::HTML
     def block_code(code, language)
       language = language.split(':')[0] if language.present?
