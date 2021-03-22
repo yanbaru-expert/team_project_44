@@ -1,0 +1,23 @@
+<div class="contents-title text-center">
+  <h1>Ruby/Rails 動画教材</h1>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <% @movies.each do |movie| %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card border-dark mb-3">
+          <div class="card-header p-0">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe width="560" height="315" src=<%= movie.url %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+          </div>
+          <div class="card-body text-dark movie-body">
+            <p class="card-text movie-title">
+              <%= movie.title %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %> 
+  </div>
+</div>
