@@ -1,0 +1,546 @@
+genre,title,content
+Ruby,undefined method `capitalize' for ~~:Array (NoMethodError),"# 質問内容
+ターミナルから ruby main.rb を実行したところ次のエラーが発生しました。どうすれば解決できますか。
+
+```エラー内容
+task.rb:63:in `q8': undefined method `capitalize' for ["ruby", "php", "python", "javascript"]:Array (NoMethodError)
+```
+# 回答
+'NoMethodError' は「メソッドがない」というエラーです。
+
+つまり，「'capitalize' というメソッドがない」ということですが，Rubyに用意されているのになぜ？という質問ではないかと思います。
+
+メソッドを使用する際は，「何に対して使用できるメソッド」であるかを確認しなければなりません。「ruby リファレンス capitalize」で検索をしてみましょう。
+
+文字列（'String'）とシンボル（'Symbol'）には 'capitalize' メソッドが存在しますが，配列（'Array'）には 'capitalize' というメソッドは存在しませんので，このエラーが出たのです。
+
+何をしたいかを再度考えてみて下さい。配列の各要素に対して何かをするならば，先に使うべきメソッドがあります。"
+Ruby,undefined local variable or method,"# 質問内容
+'ruby main.rb' を実行したところ，以下のエラーが発生しました。原因を教えて下さい。
+
+```エラー内容
+ruby_task/task.rb:66:in `q8': undefined local variable or method `upper_case_programming_languages'
+```
+# 回答
+英単語の意味を理解できていない場合は，まず翻訳して覚えていくことが重要です。
+
+- Google翻訳（https://translate.google.com/?sl=en&tl=ja&op=translate&hl=ja）
+- Google翻訳・拡張機能（https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=ja）
+- DeepL翻訳（https://www.deepl.com/translator）
+
+- 'task.rb:66' は 'task.rb' の66行目でエラーが発生したということ
+
+- 'undefined local variable or method' は「定義されていないローカル変数またはメソッド」
+
+つまり，'task.rb' の 66行目にある 'upper_case_programming_languages' が「まだ定義されていないローカル変数」もしくは「まだ定義されていないメソッド」である，というエラーです。
+```
+upper_case_programming_languages = ~~~
+```
+のように定義していない状態で変数を呼び出したので「'upper_case_programming_languages' とは何ですか？」とRubyが困ってしまっているのです。何を定義すべきかは考えてみましょう。"
+Ruby,syntax error, unexpected end-of-input, expecting `end',# 質問内容
+ターミナルから 'ruby main.rb' を実行したところ次のエラーが発生しました。どうすれば解決できますか。
+
+```エラー内容
+ruby_task/task.rb:199: syntax error, unexpected end-of-input, expecting `end'
+```
+# 回答
+英単語の意味を理解できていない場合は，まず翻訳して覚えていくことが重要です。
+
+- Google翻訳（https://translate.google.com/?sl=en&tl=ja&op=translate&hl=ja）
+- Google翻訳・拡張機能（https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=ja）
+- DeepL翻訳（https://www.deepl.com/translator）
+
+- 'task.rb:199' は 'task.rb' の199行目でエラーが発生したということ
+
+- 'syntax error' は 文法エラー （Rubyの書き方に間違いがある）
+
+- 'unexpected end-of-input, expecting end' は 'end' が足りていない
+
+ということを表しています。「199行目」の情報は今回のケースでは参考になりませんので，「end」が足りていないというエラー文に注目し，'do', 'def', 'class' に対応する 'end' が抜けていないかどうかを確認してみて下さい。"
+Ruby,Rubyの新バージョンをインストール,"# 質問内容
+GitHubからクローンしたアプリに 'bundle install' を実行したところ，次のようなエラーが出ました。
+```
+rbenv: version `2.7.2' is not installed
+```
+Ruby2.7.2がインストールできていないようですが，どのようにすればインストールできますか。
+# 回答
+'rbenv'を用いた Ruby のインストール手順を解説します。
+
+まずは，必要なアップデートを行いましょう。
+
+```ターミナル
+cd
+brew update
+brew upgrade rbenv ruby-build
+```
+次のコマンドでRubyの最新安定バージョンを確認できます。
+
+```ターミナル
+rbenv install -l | grep -v -
+```
+例えば，Ruby '2.7.2' をインストールする場合は次のような流れになります。
+
+```ターミナル
+rbenv install 2.7.2
+rbenv global 2.7.2
+gem install rails
+```
+注意すべきは，Rubyの各バージョンに対して使用するgemをインストールしなければならないことです。
+Ruby '2.6.6' で Rails をインストールしていたとしても，Ruby '2.7.2' に移行した場合は再度 rails をインストールする必要があります。
+
+他にも，例えば 'VSCode' で使用している gem がありましたら，インストールしておく必要があります。
+
+```ターミナル
+gem install solargraph
+gem install htmlbeautifier
+gem install rufo
+```
+"
+Ruby on Rails,rails new コマンド実行時に Overwrite /Users/~~~/.gitignore?,"# 質問内容
+rails new コマンドを実行した際に，以下のように尋ねられました。どのように対処すればよいでしょうか。
+
+```出力内容
+       exist
+   identical  README.md
+   identical  Rakefile
+   identical  .ruby-version
+   identical  config.ru
+    conflict  .gitignore
+Overwrite /Users/ユーザー名/ディレクトリ名/.gitignore? (enter "h" for help) [Ynaqdhm]
+```
+# 回答
+同名の Rails アプリがすでに存在しているため，上書き処理を行ってよいかどうかを尋ねられています。
+
+まずは 'control' キーを押しながら c を押して処理を中断して下さい。
+
+前回作成したアプリが不要であれば，先にアプリのディレクトリを削除してから 'rails new' コマンドを実行して下さい。
+
+なお，PostgreSQL や MySQL でデータベースを作成する場合は， 'rails db:create' を実行する前に 'rails db:drop' で以前のデータベースを削除しておく必要があります。"
+Ruby on Rails,rails g devise:install 実行後にターミナルが動かなくなる,"#質問内容
+ログイン機能を実装するため， 'Devise' をインストールし，
+
+```ターミナル
+rails g devise:install
+```
+を実行したところ，何も表示されないままターミナルが動かなくなってしまいました。どうすればよいでしょうか。
+# 回答
+パソコンを再起動してから再度コマンドを実行して下さい。"
+Ruby on Rails,Address already in use - bind(2) for "127.0.0.1" port 3000 (Errno::EADDRINUSE),"# 質問内容
+'rails s' を実行すると，大量のエラーが出た最後に
+
+```エラー内容
+Address already in use - bind(2) for "127.0.0.1" port 3000 (Errno::EADDRINUSE)
+```
+が表示されてRailsサーバーを起動できません。
+
+どうすればよろしいでしょうか。
+# 回答
+このエラーは「ポート3000を使用中」であることを意味しています。
+
+他のRailsアプリでサーバーを起動しているのが原因ですので，先にそちらを停止させましょう。
+
+もし，ターミナルを終了して停止できない場合は，以下のコマンドで強制的に停止してください。
+
+```ターミナル
+kill -9 $(lsof -i tcp:3000 -t)
+```
+これで現在のアプリでRailsサーバーを起動できるようになるでしょう。"
+Ruby on Rails,Herokuプッシュ時にエラー「! Could not detect rake tasks」,"# 質問内容
+Herokuにプッシュした際に次のエラーが発生します。
+
+```エラー文
+remote:  !     Could not detect rake tasks
+remote:  !     ensure you can run `$ bundle exec rake -P` against your app
+remote:  !     and using the production group of your Gemfile.
+```
+どのようにすればデプロイできますか。
+
+【注】以下のエラーが出るケースも見かけます。
+
+```エラー文
+remote:  !     Failed to install gems via Bundler.
+remote:  !
+remote:  !     Push rejected, failed to compile Ruby app.
+remote: 
+remote:  !     Push failed
+```
+# 回答
+【参考】(https://devcenter.heroku.com/articles/bundler-version#known-upgrade-issues)
+ 最近，Mac の一部環境で PLARFORMS が変わっており， Heroku の環境で必要となる gem が入っていないケースがあるようです。
+
+まず， 'Gemfile.lock の PLATFORMS' を確認してください。
+```
+PLATFORMS
+  ruby
+```
+となっていない場合は，以下を実行してください。
+
+```ターミナル
+bundle lock --add-platform ruby
+bundle lock --add-platform x86_64-linux
+```
+その上で，add, commitし，Herokuにプッシュしてください。
+
+```ターミナル
+git push heroku HEAD
+# 現在のブランチが main もしくは master でない場合
+git push heroku HEAD:master
+```
+"
+Ruby on Rails,データベースの変更方法,"# 質問内容
+アプリ作成時にデータベースを指定をしなかったため 'SQLite3' を使用する設定になっているのですが，'Heroku' にデプロイをするため 'PostgreSQL' に変更したいと思います。どうすればよいですか。
+# 回答
+次の2つのファイルを修正することで，Railsアプリのデータベースを変更できます。
+
+- Gemfile
+- config/database.yml
+ここでは，「開発・テスト・本番全ての環境」のデータベースを変更する前提で，手順を解説します。
+
+なお，各種設定はデフォルトのままですので，ユーザー名やパスワードを変更している場合や，AWSなどにデプロイする場合はさらなる修正が必要です。
+
+データベースを変更する前に，現在のデータベースを削除しておくことをお勧めします。
+
+```ターミナル
+rails db:drop
+```
+# `PostgreSQL' に変更する場合
+Rails 6 のアプリならば，以下のコマンドで変更できます。
+
+```ターミナル
+rails db:system:change --to=postgresql
+```
+このコマンドにより Gemfile の 'gem 'sqlite3'' が 'gem 'pg'' に変更され，'config/database.yml' の設定が 'PostgreSQL' 用のものに修正されます。
+
+# 'MySQL' に変更する場合
+Rails 6 のアプリならば，以下のコマンドで変更できます。
+
+```ターミナル
+rails db:system:change --to=mysql
+'''
+"
+Ruby on Rails,undefined method `each' for nil:NilClass,"# 質問内容
+Railsサーバーを起動してブラウザで動作確認をしようとしたところ次のエラーが発生しました。どこに問題があるのでしょうか。
+
+```エラー内容
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1>一覧表示</h1>
+    2: <section>
+    3:   <% @post.each do |post| %>
+    4:     <div>
+    5:       <p>タイトル: <%= post.taitle %></p>
+    6:       <p>内容: <%= post.content %></p>
+```
+# 回答
+'undefined method each for nil:NilClass' は直訳すれば「 'nil' に 'each'というメソッドは定義されていない」という意味です。
+
+実際に 'each' を使っているのは3行目の '@post.each' ですから，要するに「'@post' が 'nil' である」ということです。
+
+ビューで使用するインスタンス変数はコントローラで定義されているはずですので，コントローラの対応するアクションを確認し，どうすべきかを考えましょう。"
+Ruby on Rails,rails コマンドが使えない,"# 質問内容
+ターミナルから 'rails s' を実行すると次のエラーが発生します。原因を教えて下さい。
+
+```エラー内容
+Usage:
+  rails new APP_PATH [options]
+
+Options:
+      [--skip-namespace], [--no-skip-namespace]              # Skip namespace (affects only isolated engines)
+
+# 略
+```
+# 回答
+これは「コマンドを実行する場所を間違えている」のが原因です。
+
+アプリのルートディレクトリ（'rails new'コマンドで作成したディレクトリ）に 'cd' コマンドで移動してから 'rails s' を実行して下さい。
+
+何をすべきかが分からない場合は，先に Progate の Command Line を学習されることをお勧めします。"
+Ruby on Rails,Could not locate Gemfile,"# 質問内容
+ターミナルから 'bundle install' を実行すると次のエラーが発生します。原因を教えて下さい。
+
+```エラー内容
+Could not locate Gemfile
+```
+# 回答
+これは「Gemfileが見つからない」というエラーで，「コマンドを実行する場所を間違えている」のが原因です。
+
+アプリのルートディレクトリ（'rails new'コマンドで作成したディレクトリ）に 'cd' コマンドで移動してから 'bundle install' を実行して下さい。
+
+何をすべきかが分からない場合は，先に Progate の Command Line を学習されることをお勧めします。"
+Ruby on Rails,tmpファイルが自動生成される,"# 質問内容
+ビューのファイル（'html.erb'）を保存すると 'html.erb.tmp' という名前の空ファイルが作成されます。解決方法を教えていただけますか。
+# 回答
+一部の環境で 'VSCode' の拡張機能の一つである， erb ファイルのフォーマッタ [ERB Formatter/Beautify](https://marketplace.visualstudio.com/items?itemName=aliariff.vscode-erb-beautify) を利用した際に 'tmp' ファイルが作成されることを確認しています。
+
+これをアンインストールすればtmpファイルは作成されなくなりますが，代わりにerbファイルの自動フォーマットができなくなります。
+
+残念ながら現時点では他の解決方法が見つかっておりません。
+
+参考までに，次のコマンドでビューファイルのtmpファイルをまとめて削除できます。
+
+```ターミナル
+# アプリのルートディレクトリで実行
+find app/views -type f -name "*.html.erb.tmp" -delete
+```
+"
+Ruby on Rails,サーバーを起動できない,"# 質問内容
+'rails s' を実行してサーバーを起動しようとしたところ，以下のエラーが発生して起動できません。
+どのようにすればよいでしょうか。
+
+```エラー内容
+Address already in use - bind(2) for "127.0.0.1" port 3000 (Errno::EADDRINUSE)
+```
+# 回答
+すでにRailsサーバーを他のターミナルで起動しているときにこのエラーが発生します。サーバーを停止させて再度起動し直して下さい。
+
+もし，ターミナルを終了させてしまっていて停止できない場合は，次を実行してプロセスを強制終了させれば，サーバーを起動できるようになります。
+
+```ターミナル
+kill -9 $(lsof -i tcp:3000 -t)
+```
+"
+Ruby on Rails,データベースをリセットできない,"# 質問内容
+データベースを作成し直すために 'rails db:migrate:reset' を実行したところ，以下のエラーが発生しました。
+どのようにすればよいでしょうか。
+
+```エラー内容
+PG::ObjectInUse: ERROR:  database "~~~~~" is being accessed by other users
+```
+# 回答
+データベースを何かが使用している状態で「データベースのリセット」はできません。
+
+'rails s' でサーバーを起動したり，'Postico' 使用中であれば，これらを終了させましょう。
+
+それでもうまくいかない場合は，次を実行してプロセスを強制終了させてから，データベースをリセットするコマンドを実行しましょう。
+
+```ターミナル
+# PostgreSQLの場合
+kill -9 $(lsof -i tcp:5432 -t)
+
+# MySQLの場合
+kill -9 $(lsof -i tcp:3306 -t)
+```
+"
+Ruby on Rails,【Windows】Webpacker::Manifest::MissingEntryError,"# 質問内容
+```ターミナル
+rails s
+```
+を実行すると，
+
+```出力結果
+Webpacker::Manifest::MissingEntryError
+```
+というエラーが発生します。
+
+```app/view/application.html.erb
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+```
+を削除するとエラーが解消するのですが，何か問題は起こりませんか。
+# 回答
+```app/view/application.html.erb
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+```
+上記を削除しますと，'app/javascript/packs/application.js' が読み込まれなくなります。その影響で，リンクの 'delete' メソッドが動作しなくなりますので，削除してはいけません。
+
+【1】まず，以下を実行して下さい。
+
+```ターミナル
+rails webpacker:install
+```
+実行中にエラーが出ていないか確認をして下さい。エラーが出ない場合は 'rails s' を実行してRailsサーバーを起動すれば解消するでしょう。
+
+【2】もし，以下のような 'node-sass' に関するエラーが出た場合は続きを進めて下さい。
+
+```エラー内容
+error /home/ユーザー名/rails/アプリ名/node_modules/node-sass: Command failed.
+Exit code: 1
+```
+まず，WSLから 'node -v' を実行してください。バージョン15以上の場合は 'nodebrew' をインストールし，バージョン14に下げましょう。
+
+```ターミナル
+brew install nodebrew
+/home/linuxbrew/.linuxbrew/opt/nodebrew/bin/nodebrew setup_dirs
+nodebrew install 14
+nodebrew use 14
+echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.profile
+source ~/.profile
+node -v
+```
+最後のコマンドで 'v14' から始まるバージョンが表示されればOKです。以下を実行して下さい。
+
+```ターミナル
+cd アプリのルートディレクトリ
+rm -rf node_modules
+rm -f yarn.lock
+rails webpacker:install
+```
+エラーが出ずに完了すればOKです。"
+Ruby on Rails,uninitialized constant PostsController,"# 質問内容
+'http://localhost:3000/posts' にアクセスしたところ，以下のようなエラーが発生しました。原因を教えていただけますか。
+
+```エラー内容
+ActionController::RoutingError (uninitialized constant PostsController
+Did you mean?  PostController):
+```
+# 回答
+これは，コントローラのファイル名・クラス名が間違っているときに出るエラーです。エラーが指摘している内容は
+
+「'PostsController' ではなく 'PostController' ではありませんか？」
+
+ですが，これはコントローラ名を単数形にしてしまったことが原因です。次のように修正すればエラーは解決するでしょう。
+
+- 'app/controllers/post_controller.rb' のファイル名を 'app/controllers/posts_controller.rb' に変更
+
+  - 'post' を 'posts' に変更
+- ファイル内の 'class PostController' を 'class PostsController' に変更
+
+このエラーが出た根本原因は，'rails g controller' コマンドで，コントローラ名を '単数形' にしてしまったためです。特別な事情がない限り，コントローラ名は '複数形' にして下さい。
+```
+[×] rails g controller post
+[○] rails g controller posts
+```
+"
+Ruby on Rails,【Mac】PG::ConnectionBad,"# 質問内容
+サーバーを起動しようとしたところ，以下のエラーが発生しました。
+```
+PG::ConnectionBad: could not connect to server: No such file or directory
+        Is the server running locally and accepting
+        connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+```
+PostgreSQLに接続できていないようですが，どのようにすればよいでしょうか。
+# 回答
+以下，Macの場合を前提とします。
+
+【1】まず，Mac自体を再起動して下さい。これだけで解決することが多いです。
+
+【2】解決しなかった場合は，次のコマンドで 'PostgreSQL' が起動しているかどうかを確認して下さい。
+
+```ターミナル
+brew services list
+```
+
+ここで，'postgresql' が 'stopped' もしくは 'error' になっている場合は次を実行して下さい。
+
+```ターミナル
+brew services restart postgresql
+brew services list
+```
+
+'postgresql' が 'started' になっていれば，エラーが解消している可能性が高いので，元の作業に戻ってください。
+
+【3】'postgresql' が 'error' のままになっている場合は，次を実行し，その結果次第で対応方法を判断するとよいでしょう。
+
+```ターミナル
+brew doctor
+```
+【4】PostgreSQLのメジャーアップデートが原因で，データベースが読めないケースがあります。この場合は次を実行しましょう。
+
+```ターミナル
+brew services stop postgresql
+brew upgrade postgresql
+rm -rf /usr/local/var/postgres.old
+brew postgresql-upgrade-database
+brew services start postgresql
+brew services list
+```
+
+'postgresql' が 'started' になっていれば，エラーが解消している可能性が高いので，元の作業に戻ってください。
+
+【5】最終手段として，PostgreSQLを再インストールする方法があります。データベースが全て消えてしまいますが，解決する可能性が高いです。
+
+```ターミナル
+brew uninstall postgresql
+brew cleanup
+rm -rf /usr/local/var/postgres
+brew install postgresql
+brew services start postgresql
+initdb --locale=C -E UTF-8 /usr/local/var/postgres
+brew services list
+```
+'postgresql' が 'started' になっていれば，エラーが解消している可能性が高いので，元の作業に戻ってください。"
+Ruby on Rails,【Mac】Webpacker::Manifest::MissingEntryError,"# 質問内容
+```ターミナル
+rails s
+```
+
+を実行すると，
+
+```出力結果
+Webpacker::Manifest::MissingEntryError
+```
+
+というエラーが発生します。
+
+```app/view/application.html.erb
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+```
+を削除するとエラーが解消するのですが，何か問題は起こりませんか。
+# 回答
+```app/view/application.html.erb
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+```
+上記を削除しますと，'app/javascript/packs/application.js' が読み込まれなくなります。その影響で，リンクの 'delete' メソッドが動作しなくなりますので，削除してはいけません。
+
+【1】まず，以下を実行して下さい。
+
+```ターミナル
+rails webpacker:install
+```
+実行中にエラーが出ていないか確認をして下さい。エラーが出ない場合は 'rails s' を実行してRailsサーバーを起動すれば解消するでしょう。
+
+【2】もし，以下のような 'node-sass' に関するエラーが出た場合は続きを進めて下さい。
+
+```エラー内容
+error /Users/ユーザー名/rails/アプリ名/node_modules/node-sass: Command failed.
+Exit code: 1
+```
+
+このエラーが出た場合は，まず次をを実行し，状況を確認して下さい。
+
+```ターミナル
+brew doctor
+```
+
+次のような出力結果が出た場合は指示通りコマンドを実行しましょう。
+
+````出力結果
+Warning: No developer tools installed.
+Install the Command Line Tools:
+  xcode-select --install
+```
+
+```ターミナル
+xcode-select --install
+rails webpacker:install
+```
+
+実行中にエラーが出ていないか確認をして下さい。エラーが出ない場合はRailsサーバーを起動すれば解消するでしょう。
+
+【3】これでも解消されない場合は，まずターミナルから 'node -v' を実行してください。バージョン15以上の場合は 'nodebrew' をインストールし，バージョン14に下げましょう。
+
+```ターミナル
+brew install nodebrew
+/usr/local/opt/nodebrew/bin/nodebrew setup_dirs
+nodebrew install 14
+nodebrew use 14
+```
+
+シェルスクリプトに応じて片方のみ実行して下さい。（不明な場合は 'echo $SHELL' で確認できます）
+```
+# zshの場合
+echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.zshrc
+source ~/.zshrc
+
+# bashの場合
+echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.bash_profile
+source ~/.bash_profile
+```
+
+'node -v' を実行し， 'v14.15.3' が表示されればインストールは完了です。以下を実行し，エラーが出ずに完了すればOKです。
+
+```ターミナル
+cd アプリのルートディレクトリ
+rm -rf node_modules
+rm -f yarn.lock
+rails webpacker:install
+```
+"
