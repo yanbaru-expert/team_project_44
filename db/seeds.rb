@@ -1,5 +1,3 @@
-# csvファイルを読み込む
-require 'csv'
 EMAIL = 'test@example.com'
 PASSWORD = 'password'
 
@@ -35,5 +33,3 @@ AdminUser.find_or_create_by!(email: ADMIN_EMAIL) do |admin_user|
   admin_user.password_confirmation = ADMIN_PASSWORD
   puts "管理者ユーザーの初期データのインポートに成功しました。"
 end
-  
-
