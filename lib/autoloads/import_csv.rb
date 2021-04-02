@@ -12,7 +12,7 @@ class ImportCsv
   end
 
   def self.movie_import(path)
-    CSV.foreach('db/csv_data/movie_data.csv', headers: true) do |row|
+    CSV.foreach(path, headers: true) do |row|
       Movie.create!(
         genre: row['genre'],
         title: row['title'],
@@ -31,6 +31,6 @@ class ImportCsv
         answer: row['answer']
       )
     end
-    puts 'よくある質問集のCSVデータ投入に成功しました。'
+    puts 'よくある質問集へのCSVデータ投入に成功しました。'
   end
 end
