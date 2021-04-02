@@ -5,7 +5,8 @@ class ImportCsv
       Question.create!(
         genre: row['genre'],
         title: row['title'],
-        content: row['content']
+        content: row['content'],
+        answer: row['answer']
       )
     end
     puts 'よくある質問集のCSVデータ投入に成功しました。'
