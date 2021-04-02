@@ -27,9 +27,11 @@ CSV.foreach('db/csv_data/movie_data.csv', headers: true) do |row|
     url: row['url']
   )
 end
-
 AdminUser.find_or_create_by!(email: ADMIN_EMAIL) do |admin_user|
   admin_user.password = ADMIN_PASSWORD
   admin_user.password_confirmation = ADMIN_PASSWORD
   puts "管理者ユーザーの初期データのインポートに成功しました。"
 end
+
+Question.destroy_all
+ImportCsv.question_import('db/csv_data/question_data.csv')
