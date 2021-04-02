@@ -8,7 +8,18 @@ class ImportCsv
         content: row['content']
       )
     end
-    puts 'Text教材へのCSVデータ投入に成功しました。'
+    puts 'TextへのCSVデータ投入に成功しました。'
+  end
+
+  def self.movie_import(path)
+    CSV.foreach('db/csv_data/movie_data.csv', headers: true) do |row|
+      Movie.create!(
+        genre: row['genre'],
+        title: row['title'],
+        url: row['url']
+      )
+    end
+    puts 'MovieへのCSVデータ投入に成功しました。'
   end
 
   def self.question_import(path)
