@@ -11,9 +11,9 @@
           <div class="card-body">
             <object>
               <% if text.read_by?(current_user) %>
-                <a class="btn btn-primary btn-block" data-remote="true" rel="nofollow" data-method="delete" href="/texts/185/read_texts">読破済みを解除</a>
+                <%= link_to "読破済みを解除", text_reads_path(text), method: :delete, class: "btn btn-primary btn-block" %>
               <% else %>
-                <a class="btn btn-secondary btn-block" data-remote="true" rel="nofollow" data-method="post" href="/texts/185/read_texts">読破済みにする</a>
+                <%= link_to "読破済みにする", text_reads_path(text), method: :post, class: "btn btn-secondary btn-block" %>
               <% end %>
             </object>
             <p class="card-title"><%= text.title %></p>
