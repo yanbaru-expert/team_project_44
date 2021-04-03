@@ -9,8 +9,13 @@
             <img class="card-img-top" src="https://d5izmuz0mcjzz.cloudfront.net/texts/no_image.jpg" alt="カード画像">
           <% end %>
           <div class="card-body">
-            <%# ボタンは別タスク
-            <a href="#" class="btn btn-primary">Go somewhere</a> %>
+            <object>
+              <% if text.read_by?(current_user) %>
+                <a class="btn btn-primary btn-block" data-remote="true" rel="nofollow" data-method="delete" href="/texts/185/read_texts">読破済みを解除</a>
+              <% else %>
+                <a class="btn btn-secondary btn-block" data-remote="true" rel="nofollow" data-method="post" href="/texts/185/read_texts">読破済みにする</a>
+              <% end %>
+            </object>
             <p class="card-title"><%= text.title %></p>
             <p class="card-text">【<%= text.genre %>】</p>
           </div>
