@@ -2,7 +2,7 @@
   <h2><%= @text.title %></h2>
   <p><%= markdown(@text.content) %></p>
   <p id="text-<%= @text.id %>">
-  <% if @text.text_studied_by?(current_user) %>
+  <% if @text.text_read_by?(current_user) %>
     <%= render "read_text", text: @text %>
   <% else %>
     <%= render "unread_text", text: @text %>

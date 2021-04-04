@@ -1,4 +1,4 @@
-class TextManagement < ApplicationRecord
+class ReadText < ApplicationRecord
   belongs_to :user
   belongs_to :text
   validates :user_id, uniqueness: {
