@@ -1,2 +1,2 @@
 <%# 読破済み %>
-<%= link_to "★", text_text_managements_path(@text), method: :delete %>
+<%= link_to "読破済みを解除", text_text_managements_path(text), method: :delete, remote: true, class: "btn btn-primary btn-block" %>
