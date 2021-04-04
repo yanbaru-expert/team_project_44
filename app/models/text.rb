@@ -5,7 +5,7 @@ class Text < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
-  def text_read_by?(user)
+  def read_text_by?(user)
     read_texts.find_by(user_id: user.id).present?
   end
 end
