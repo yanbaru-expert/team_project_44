@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2021_04_03_052917) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string "genre"
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "answer"
+  end
+
   create_table "reads", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "text_id", null: false
