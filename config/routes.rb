@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :texts, only: [:index, :show]
   devise_for :users
   resources :movies
-  resources :questions
+  resources :questions, only: :index
 end
