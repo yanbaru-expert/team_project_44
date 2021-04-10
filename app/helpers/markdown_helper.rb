@@ -1,32 +1,23 @@
+require 'rouge/plugins/redcarpet'
+class HTML < Redcarpet::Render::HTML
+  include Rouge::Plugins::Redcarpet
+end
+
 module MarkdownHelper
-  class HTMLwithCoderay < Redcarpet::Render::HTML
-    def block_code(code, language)
-      language = language.split(':')[0] if language.present?
-
-      lang = case language.to_s
-             when 'rb'
-               'ruby'
-             when 'yml'
-               'yaml'
-             when 'css'
-               'css'
-             when 'html'
-               'html'
-             when ''
-               # 空欄のままだと「Invalid id given:」エラー
-               'md'
-             else
-               language
-             end
-
-      CodeRay.scan(code, lang).div
-    end
+  def markdown(text)
+    markdown = Redcarpet::Markdown.new(html_renderer, markdown_extensions)
+    markdown.render(text).html_safe
   end
 
-  def markdown(text)
-    html_render = HTMLwithCoderay.new(filter_html: true, hard_wrap: true)
+  private
 
-    options = {
+  def html_renderer
+    #Redcarpet::Render::HTML
+    HTML.new(url_options)
+  end
+
+  def markdown_extensions
+    {
       autolink: true,
       space_after_headers: true,
       no_intra_emphasis: true,
@@ -37,7 +28,5 @@ module MarkdownHelper
       lax_html_blocks: true,
       strikethrough: true
     }
-    markdown = Redcarpet::Markdown.new(html_render, options)
-    markdown.render(text).html_safe
   end
 end
