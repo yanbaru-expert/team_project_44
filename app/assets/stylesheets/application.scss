@@ -27,6 +27,41 @@
   text-align: left;
 }
 
+li a {
+    color: #e83e8c;
+}
+
+thead {
+    background-color: #EEFFFF;
+    display: table-header-group;
+    ertical-align: middle;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-spacing: 2px;
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+th,td {
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+    display: table-cell;
+    border-bottom-width: 2px;
+    white-space: nowrap;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(0,0,0,0.05);
+}
+
 /* max-width */
 
 .mw-md {
