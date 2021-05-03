@@ -16,6 +16,8 @@ AdminUser.find_or_create_by!(email: ADMIN_EMAIL) do |admin_user|
   puts "管理者ユーザーの初期データのインポートに成功しました。"
 end
 
+Read.delete_all
+
 Text.delete_all
 ImportCsv.text_import('db/csv_data/text_data.csv')
 
