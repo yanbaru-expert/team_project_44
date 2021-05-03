@@ -3,6 +3,7 @@ ja:
     models:
       text: 教材
       read: 読む
+      watch: 見る
     attributes:
       text:
         content: 内容
@@ -10,6 +11,9 @@ ja:
       read:
         user: ユーザー
         text: 教材
+      watch:
+        user: ユーザー
+        movie: 動画
   time:
     formats:
       default: "%Y年%-m月%-d日(%a) %-H時%-M分%-S秒"
