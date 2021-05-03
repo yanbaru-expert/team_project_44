@@ -28,6 +28,8 @@ gem 'redcarpet'
 gem 'coderay'
 # 検索機能
 gem 'ransack'
+# Railsで定義した変数をJavascript内で利用
+gem 'gon'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

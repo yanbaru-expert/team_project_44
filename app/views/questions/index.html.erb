@@ -1,7 +1,53 @@
-
-<p>テスト</p>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("p").text("成功！！");
-  });
+<div>
+  <form class="js-filter-form :checkbox">
+    <label><input class="checkbox" type="checkbox" name="genre" value="ruby" checked> ruby</label>
+    <label><input class="checkbox" type="checkbox" name="genre" value="rails" checked> rails</label>
+  </form>
+</div>
+<div>
+<%= search_form_for @q do |f| %>
+<%= f.label :title_cont, "タイトル" %>
+<%= f.search_field :title_cont %>
+<%= f.label :content_cont, "キーワード" %>
+<%= f.search_field :content_cont %>
+<%= f.submit "検索" %>
+<% end %>
+<div>
+<body>
+<table id="list">
+  <thead>
+    <tr>
+      <th>ジャンル</th>
+      <th>タイトル</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @questions.each do |question| %>
+        <tr>
+          <td><%= question.genre %></td>
+          <td><%= question.title %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+<script>
+$(".js-filter-form :checkbox").on("click", function(){
+	var checked = [];
+	$(".js-filter-form :checked").each(function(){
+    // チェックボックスにチェックした値を配列に追加
+		checked.push($(this).val());
+    });
+    // 全てのtrを取得
+		$('#list tbody tr').each(function(){
+			var txt = $(this).find("td:eq(0)").html();
+      // rubyとrailsにチェックが入ると表示
+			if(txt.match(checked[0]) || (checked[1])){
+				$(this).show();
+			}else{
+				$(this).hide();
+			}
+		});
+});
 </script>
+</body>
+</div>
