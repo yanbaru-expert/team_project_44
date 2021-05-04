@@ -13,10 +13,20 @@
   padding-left: 5px;
 }
 
-h1 {
-    padding: 20px 0px 10px 0px;
-    font-size: 2rem;
-    text-align: center;
+/* ログイン画面 */
+
+.mw-md h1 {
+  padding: 20px 0px 10px 0px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* テキスト詳細ページ */
+
+.mw-xl h1,h2 {
+  padding: 20px 0px 10px 0px;
+  font-size: 1.75rem;
+  text-align: left;
 }
 
 /* max-width */

@@ -1,0 +1,18 @@
+<div class="col-12 col-md-6 col-lg-4">
+  <div class="card border-dark mb-10">
+    <%= link_to text_path(text.id), target: ":_blank" do%>
+      <img class="card-img-top" src="https://d5izmuz0mcjzz.cloudfront.net/texts/no_image.jpg" alt="カード画像">
+    <% end %>
+    <div class="card-body">
+      <div id="text-<%= text.id %>">
+        <% if @read_text_ids.include?(text.id) %>
+          <%= render "read", text: text %>
+        <% else %>
+          <%= render "unread", text: text %>
+        <% end %>
+      </div>
+      <p class="card-title"><%= text.title %></p>
+      <p class="card-text">【<%= text.genre %>】</p>
+    </div>
+  </div>
+</div>

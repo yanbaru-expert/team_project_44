@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      text: 教材
+      read: 読む
+    attributes:
+      text:
+        content: 内容
+        user: ユーザー
+      read:
+        user: ユーザー
+        text: 教材
+  time:
+    formats:
+      default: "%Y年%-m月%-d日(%a) %-H時%-M分%-S秒"
