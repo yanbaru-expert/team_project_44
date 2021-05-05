@@ -16,21 +16,11 @@ AdminUser.find_or_create_by!(email: ADMIN_EMAIL) do |admin_user|
   puts "管理者ユーザーの初期データのインポートに成功しました。"
 end
 
-Read.delete_all
-Watch.delete_all
-
-Post.delete_all
-Post.reset_pk_sequence
-
-Movie.delete_all
-Movie.reset_pk_sequence
+ActiveRecord::Base.connection.execute("TRUNCATE TABLE movies RESTART IDENTITY CASCADE")
 ImportCsv.movie_import('db/csv_data/movie_data.csv')
 
-Text.delete_all
-Text.reset_pk_sequence
+ActiveRecord::Base.connection.execute("TRUNCATE TABLE texts RESTART IDENTITY CASCADE")
 ImportCsv.text_import('db/csv_data/text_data.csv')
 
 Question.destroy_all
 ImportCsv.question_import('db/csv_data/question_data.csv')
-
-ImportCsv.post_import('db/csv_data/post_data.csv')

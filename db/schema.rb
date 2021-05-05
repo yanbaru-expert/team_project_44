@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_062321) do
+ActiveRecord::Schema.define(version: 2021_05_03_070043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,16 +47,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_062321) do
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.bigint "text_id", null: false
-    t.bigint "movie_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["movie_id"], name: "index_posts_on_movie_id"
-    t.index ["text_id", "movie_id"], name: "index_posts_on_text_id_and_movie_id", unique: true
-    t.index ["text_id"], name: "index_posts_on_text_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -108,8 +98,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_062321) do
     t.index ["user_id"], name: "index_watches_on_user_id"
   end
 
-  add_foreign_key "posts", "movies"
-  add_foreign_key "posts", "texts"
   add_foreign_key "reads", "texts"
   add_foreign_key "reads", "users"
   add_foreign_key "watches", "movies"
