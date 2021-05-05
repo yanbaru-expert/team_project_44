@@ -4,6 +4,7 @@ ja:
       text: 教材
       read: 読む
       watch: 見る
+      post: 掲載
     attributes:
       text:
         content: 内容
@@ -13,6 +14,9 @@ ja:
         text: 教材
       watch:
         user: ユーザー
+        movie: 動画
+      post:
+        text: 教材
         movie: 動画
   time:
     formats:
