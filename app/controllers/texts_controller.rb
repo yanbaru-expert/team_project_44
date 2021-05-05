@@ -9,5 +9,7 @@ class TextsController < ApplicationController
 
   def show
     @text = Text.find(params[:id])
+    @movies = @text.posted_movies
+    @watched_movie_ids = current_user.watches.pluck(:movie_id)
   end
 end

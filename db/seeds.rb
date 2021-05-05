@@ -17,12 +17,20 @@ AdminUser.find_or_create_by!(email: ADMIN_EMAIL) do |admin_user|
 end
 
 Read.delete_all
+Watch.delete_all
 
-Text.delete_all
-ImportCsv.text_import('db/csv_data/text_data.csv')
+Post.delete_all
+Post.reset_pk_sequence
 
 Movie.delete_all
+Movie.reset_pk_sequence
 ImportCsv.movie_import('db/csv_data/movie_data.csv')
+
+Text.delete_all
+Text.reset_pk_sequence
+ImportCsv.text_import('db/csv_data/text_data.csv')
 
 Question.destroy_all
 ImportCsv.question_import('db/csv_data/question_data.csv')
+
+ImportCsv.post_import('db/csv_data/post_data.csv')
