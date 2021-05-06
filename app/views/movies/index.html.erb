@@ -13,6 +13,13 @@
           </div>
           <div class="card-body text-dark movie-body">
             <p class="card-text movie-title">
+            <p id="movie-<%= movie.id %>">
+              <% if @watched_movie_ids.include?(movie.id) %>
+                <%= render "watch", movie: movie %>
+              <% else %>
+                <%= render "unwatch", movie: movie %>
+              <% end %>
+            </p>
               <%= movie.title %>
             </p>
           </div>
