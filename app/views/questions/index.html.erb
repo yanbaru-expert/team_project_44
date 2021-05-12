@@ -1,0 +1,65 @@
+<div class="base-container mw-lg">
+  <section id="contents">
+  <h1 class="text-center mb-3">よくある質問集</h1>
+    <div class="base-container mw-lg">
+      <form class="js-filter-form :checkbox">
+        <label><input class="checkbox" type="checkbox" name="genre" value="ruby" checked> ruby</label>
+        <label><input class="checkbox" type="checkbox" name="genre" value="rails" checked> rails</label>
+      </form>
+      <%= search_form_for @q do |f| %>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <div class="form-control input-group-text"><%= f.label :title_cont, "タイトル" %></div>
+        </div>
+        <%= f.search_field :title_cont, class:"form-control" %>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <div class="form-control input-group-text"><%= f.label :content_cont, "キーワード" %></div>
+        </div>
+        <%= f.search_field :content_cont,class: "form-control" %>
+      </div>
+      <%= f.submit:class=>"btn btn-primary btn-block" %>
+      <% end %>
+    <div>
+  <body>
+<div class="table-container mt-3">
+  <table id="list" class="table table-striped">
+    <thead class="text-white base-bf-color">
+      <tr class="bg-primary">
+        <th class="text-nowrap">ジャンル</th>
+        <th class="w-100">タイトル</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @questions.each do |question| %>
+        <tr>
+          <td class="text-nowrap align-middle question-title"><%= question.genre %></td>
+          <td class="break-word"><%= question.title %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+    </section>
+</div>
+</div>
+<script>
+$(".js-filter-form :checkbox").on("click", function(){
+  var checked = [];
+  $(".js-filter-form :checked").each(function(){
+    // チェックボックスにチェックした値を配列に追加
+    checked.push($(this).val());
+    });
+    // 全てのtrを取得
+    $('#list tbody tr').each(function(){
+      var txt = $(this).find("td:eq(0)").html();
+      // rubyとrailsにチェックが入ると表示
+      if(txt.match(checked[0]) || (checked[1])){
+        $(this).show();
+      }else{
+        $(this).hide();
+      }
+    });
+});
+</script>
+</body>

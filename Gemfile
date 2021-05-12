@@ -24,10 +24,11 @@ gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
 # Markdown
 gem 'redcarpet'
-# シンタックスハイライト
-gem 'coderay'
+# 検索機能
+gem 'ransack'
 # シンタックスハイライト
 gem 'rouge'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
