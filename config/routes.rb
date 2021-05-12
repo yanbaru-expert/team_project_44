@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resource :reads, only: [:create, :destroy]
   end
   devise_for :users
-  resources :movies
-  resources :questions, only: :index
+
+  resources :movies, only: [:index] do
+    resources :watches, only: [:create, :destroy]
+  end
 end

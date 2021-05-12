@@ -33,4 +33,14 @@ class ImportCsv
     end
     puts 'よくある質問集へのCSVデータ投入に成功しました。'
   end
+
+  def self.post_import(path)
+    CSV.foreach(path, headers: true) do |row|
+      Post.create!(
+        text_id: row['text_id'],
+        movie_id: row['movie_id']
+      )
+    end
+    puts 'PostへのCSVデータ投入に成功しました。'
+  end
 end
