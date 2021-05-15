@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :movies, only: [:index] do
     resources :watches, only: [:create, :destroy]
   end
+  resources :questions, only: [:index, :show]
 end
